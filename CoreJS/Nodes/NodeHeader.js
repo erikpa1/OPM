@@ -12,4 +12,9 @@ class NodeHeader extends NodeElement{
 
     }
 
+    setBackgroundColor(color)
+    {
+      super. getReprezentation().backgroundColor = color ;
+    }
+
 }
