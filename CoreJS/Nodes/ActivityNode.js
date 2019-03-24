@@ -16,7 +16,9 @@ class ActivityNode extends BasicNode{
         nodeSecondHeader.cursor = "default";
         nodeSecondHeader.innerText = this.nodename;
         nodeSecondHeader.style.backgroundColor = "#444444";
+
         base.appendChild(nodeSecondHeader);
+        base.appendChild(this.CreateActivityState());
         base.appendChild(this.CreateActivityState());
 
     }
