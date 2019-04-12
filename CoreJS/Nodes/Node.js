@@ -1,26 +1,52 @@
 
 
 
-class BasicNode
+class BasicNode extends React.Component
 {
-    constructor(name)
+    constructor(name, canvas)
     {
-        this.name = name;
+        super();
 
+        this.name = name;
+        this.canvas = canvas;
+        this.nodeHeader = new NodeHeader(name, this);
+
+
+        this.fillNodeWithInput(this.nodeHeader.GetReprezentation());
+        this.fillNodeWithOutput(this.nodeHeader.GetReprezentation());
 
         var node = document.createElement("DIV");
         node.classList.add("nodeBody");
         node.style.left = 250;
         node.style.top = 250;
-
-        this.nodeHeader = new NodeHeader(name);
-
-        node.appendChild(this.nodeHeader.getReprezentation());
+        node.appendChild(this.nodeHeader.GetReprezentation());
 
         dragElement(node);
         scaleElement(node);
 
         this.reprezentation = node;
+    }
+
+    fillNodeWithInput(node)
+    {
+        node.appendChild(new NodeInput().GetReprezentation());
+    }
+
+
+    fillNodeWithOutput(node)
+    {
+        node.appendChild(new NodeOutput().GetReprezentation());
+    }
+
+    setNodeSelected()
+    {
+        this.nodeHeader.SetSelectedColor();
+    }
+
+    setNodeDeselected()
+    {
+        this.nodeHeader.SetUnselectedColor();
+
     }
 
     setCommentary(commentary)
@@ -31,6 +57,11 @@ class BasicNode
     getCommentary()
     {
         return this.commentary;
+    }
+
+    GetCanvas()
+    {
+        return this.canvas;
     }
 
     getName()
@@ -47,4 +78,7 @@ class BasicNode
     {
         return "Serialized";
     }
+
+
+
 }

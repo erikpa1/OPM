@@ -6,7 +6,7 @@ class NodeInputLabel extends NodeElement{
         this.reprezentation.classList.add("form-control");
     }
 
-    getReprezentation()
+    GetReprezentation()
     {
         return this.reprezentation;
     }

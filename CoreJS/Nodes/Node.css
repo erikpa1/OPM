@@ -6,10 +6,37 @@
     border: 1px solid #d3d3d3;
 }
 
+.nodeBody:hover
+{
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
 .nodeHeader {
     padding: 10px;
     margin: 2px 2px 2px 2px;
     z-index: 1;
     background-color: #222222;
     color: #fff;
+}
+
+.nodeInput
+{
+    width: 15px;
+    height: 15px;
+    background-color: #ea8700;
+    border-radius: 50%;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.nodeOutput
+{
+    width: 15px;
+    height: 15px;
+    background-color: #ea8700;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-right: 5px;
+
 }

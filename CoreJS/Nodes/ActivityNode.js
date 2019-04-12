@@ -9,7 +9,7 @@ class ActivityNode extends BasicNode{
         //this.baseNode = new BasicNode();
         //this.baseNode.name = "Activity";
 
-        var base = this.getReprezentation();//this.baseNode.getReprezentation()
+        var base = this.getReprezentation();//this.baseNode.GetReprezentation()
         var nodeSecondHeader = document.createElement("div");
 
         nodeSecondHeader.classList.add("nodeHeader");
