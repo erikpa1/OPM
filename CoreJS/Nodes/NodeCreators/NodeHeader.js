@@ -10,15 +10,8 @@ class NodeHeader extends NodeElement{
         super.GetReprezentation().style.top = 250;
         super.SetElementInnerName(name);
         super.AddElementClass("nodeHeader");
-        super.SetOnClickReator(this);
+        //super.SetOnClickReator(parent);
 
-    }
-
-    ReactOnClick()
-    {
-        var parent = super.GetNodeParent();
-        var canvas = parent.GetCanvas();
-        canvas.ActivateNode(super.GetNodeParent());
     }
 
     SetUnselectedColor()

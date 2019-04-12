@@ -37,20 +37,16 @@ class Canvas
 
         $("body")[0].appendChild(GetTopNav());
 
-        this.AddNodeToCanvas(tmpnode.getReprezentation());
-        this.AddNodeToCanvas(tmpActivityNode.getReprezentation());
+        this.AddNodeToCanvas(tmpnode.GetReprezentation());
+        this.AddNodeToCanvas(tmpActivityNode.GetReprezentation());
+
+
 
     }
 
     RecieveAjaxMessage(data)
     {
 
-    }
-
-    AddNodeToCanvas(nodename)
-    {
-        $("body")[0].appendChild(CreateActivityNode("Activity")[0]);
-        alert(nodename);
     }
 
     OverrideRightClick()
@@ -64,30 +60,29 @@ class Canvas
         {
             if (this.activeNode != null)
             {
-                this.activeNode.setNodeDeselected();
+                this.activeNode.SetNodeDeselected();
             }
             this.activeNode = node;
-            this.activeNode.setNodeSelected();
+            this.activeNode.SetNodeSelected();
         } else {
-            node.setNodeSelected();
+            node.SetNodeSelected();
             this.activeNodes.add(node);
         }
     }
 
     DeactivateNode(node)
     {
-        this.activeNode.setNodeDeselected();
+        this.activeNode.SetNodeDeselected();
         this.activeNode = null;
         this.activeNodes.clear;
     }
 
 
 
-
-
     AddNodeToCanvas(node)
     {
-        $("body")[0].appendChild(node);
+        $("body")[0].appendChild(node.GetReprezentation());
+        
     }
 
     GetMultiSelectionState()
@@ -102,7 +97,7 @@ class Canvas
         var index = 0;
         for (index = 0; index < this.allNodes.length; i++)
         {
-            outputCollector += this.allNodes[index].getSerialized();
+            outputCollector += this.allNodes[index].GetSerialized();
         }
         this.ajax.SetData(outputCollector);
         //this.ajax.Send();

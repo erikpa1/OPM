@@ -6,18 +6,19 @@ class NodeElement
         this.parent = null;
         this.onClickReactor = null;
         this.onRightClickReactor = null;
-
-        this.reprezentation.onclick = this.ReactOnClick;
     }
 
     SetOnClickReator(reactor)
     {
         this.onClickReactor = reactor;
+        this.reprezentation.onclick = this.ReactOnClick.call();
     }
 
     ReactOnClick()
     {
-        this.onClickReactor.ReactOnClick();
+        if (this.onClickReactor != null) {                   
+            this.onClickReactor.ReactOnClick();              
+        }                                                    
     }
 
     SetOnRightClickReactor(reactor)
@@ -38,6 +39,11 @@ class NodeElement
     AddElementClass(elementClass)
     {
         this.reprezentation.classList.add(elementClass);
+    }
+
+    AddElementChild(node)
+    {
+        this.reprezentation.appendChild(node.GetReprezentation());
     }
 
     SetOnHoverCursorPointer()
@@ -63,6 +69,11 @@ class NodeElement
     SetBackgroundColor(color)
     {
         this.reprezentation.style.backgroundColor = color;
+    }
+
+    ParentMoved()
+    {
+
     }
 
 

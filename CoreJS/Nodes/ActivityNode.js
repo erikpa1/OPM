@@ -5,19 +5,13 @@ class ActivityNode extends BasicNode{
     constructor(activityNodeName)
     {
         super("Activity");
+
         this.activityNodeName = activityNodeName;
-        //this.baseNode = new BasicNode();
-        //this.baseNode.name = "Activity";
 
-        var base = this.getReprezentation();//this.baseNode.GetReprezentation()
-        var nodeSecondHeader = document.createElement("div");
+        var nodeSecondHeader = new NodeHeader("Waiting");
 
-        nodeSecondHeader.classList.add("nodeHeader");
-        nodeSecondHeader.cursor = "default";
-        nodeSecondHeader.innerText = this.nodename;
-        nodeSecondHeader.style.backgroundColor = "#444444";
-        base.appendChild(nodeSecondHeader);
-        base.appendChild(this.CreateActivityState());
+        super.GetReprezentation().AddElementChild(nodeSecondHeader);
+        //super.GetReprezentation().AddElementChild(this.CreateActivityState());
 
     }
 
@@ -31,14 +25,14 @@ class ActivityNode extends BasicNode{
         return tmp;
     }
 
-    getSerialized()
+    GetSerialized()
     {
         return "Serialized";
     }
 
 
 
-    getReprezentation()
+    GetReprezentation()
     {
         return this.reprezentation;
 
