@@ -8,13 +8,15 @@ class NodeElement
         this.onRightClickReactor = null;
     }
 
-    SetOnClickReator(reactor)
+    SetOnClickReactor(reactor)
     {
         this.onClickReactor = reactor;
-        this.reprezentation.onclick = this.ReactOnClick.call();
+        this.reprezentation.onclick = function(){
+            this.BaseReactOnClick()
+        };
     }
 
-    ReactOnClick()
+    BaseReactOnClick()
     {
         if (this.onClickReactor != null) {                   
             this.onClickReactor.ReactOnClick();              

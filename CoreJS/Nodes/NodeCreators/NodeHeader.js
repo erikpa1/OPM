@@ -10,7 +10,7 @@ class NodeHeader extends NodeElement{
         super.GetReprezentation().style.top = 250;
         super.SetElementInnerName(name);
         super.AddElementClass("nodeHeader");
-        //super.SetOnClickReator(parent);
+        //super.SetOnClickReactor(parent);
 
     }
 

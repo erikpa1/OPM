@@ -30,6 +30,18 @@ class NodeLine extends NodeElement
         this.line.setAttribute('y2', 300);
     }
 
+    SetPositionOfLeftPoint(x, y)
+    {
+        this.line.setAttribute('x1', x);
+        this.line.setAttribute('y1', y);
+    }
+
+    SetPositionOfRightPoint(x, y)
+    {
+        this.line.setAttribute('x2', x);
+        this.line.setAttribute('y2', y);
+    }
+
 
 
 }
