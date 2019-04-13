@@ -1,29 +1,28 @@
 
-
-
-class BasicNode extends React.Component
+class BasicNode
 {
     constructor(name, canvas)
     {
-        super();
-
         this.name = name;
         this.canvas = canvas;
         this.nodeHeader = new NodeHeader(name, this);
         this.input = null;
         this.output = null;
 
-        this.FillNodeWithInput(this.nodeHeader);
-        this.FillNodeWithOutput(this.nodeHeader);
-
         this.reprezentation = new NodeBody();
         this.reprezentation.AddElementChild(this.nodeHeader);
+
+        this.FillNodeWithInput(this.nodeHeader, "Header");
+        this.FillNodeWithOutput(this.nodeHeader, "Header");
 
         dragElement(this.reprezentation.GetReprezentation());
         scaleElement(this.reprezentation.GetReprezentation());
 
-        this.output.CreateConnection(this.input);
+    }
 
+    AddExternalElement(element)
+    {
+        this.reprezentation.AddElementChild(element);
     }
 
     ReactOnClick()
@@ -31,16 +30,16 @@ class BasicNode extends React.Component
         this.canvas.ActivateNode(this);
     }
 
-    FillNodeWithInput(element)
+    FillNodeWithInput(element, type)
     {
-        this.input = new NodeInput();
+        this.input = new NodeInput(this, type);
         element.AddElementChild(this.input);
     }
 
 
-    FillNodeWithOutput(element)
+    FillNodeWithOutput(element, type)
     {
-        this.output = new NodeOutput()
+        this.output = new NodeOutput(this, type)
         element.AddElementChild(this.output);
     }
 
@@ -53,6 +52,28 @@ class BasicNode extends React.Component
     {
         this.nodeHeader.SetUnselectedColor();
 
+    }
+
+    InformCanvasAboutInputMarking(type)
+    {
+        this.canvas.MarkNodeInputs(type);
+    }
+
+    InformCanvasAboutInputUnMarking(type)
+    {
+        this.canvas.UnMarkNodeInputs(type);
+    }
+
+
+
+    MarkHeaderInput()
+    {
+        this.input.Mark();
+    }
+
+    UnMarkHeaderInput()
+    {
+        this.input.UnMark();
     }
 
     SetCommentary(commentary)
@@ -91,6 +112,20 @@ class BasicNode extends React.Component
     }
 
     GetOutput()
+    {
+        return this.output;
+    }
+
+    GetNodeBody(){
+        return this.reprezentation;
+    }
+
+    GetHeaderInput()
+    {
+        return this.input;
+    }
+
+    GetHeaderOutput()
     {
         return this.output;
     }

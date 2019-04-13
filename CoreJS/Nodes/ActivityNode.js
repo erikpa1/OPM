@@ -2,34 +2,22 @@
 
 class ActivityNode extends BasicNode{
 
-    constructor(activityNodeName)
+    constructor(activityNodeName, parent)
     {
-        super("Activity");
-
-        this.activityNodeName = activityNodeName;
-
-        var nodeSecondHeader = new NodeHeader("Waiting");
-
-        super.GetReprezentation().AddElementChild(nodeSecondHeader);
-        //super.GetReprezentation().AddElementChild(this.CreateActivityState());
-
-    }
-
-    CreateActivityState()
-    {
-        var tmp = document.createElement("div");
-        tmp.classList.add("nodeHeader");
-        tmp.innerText = "Waiting";
-        tmp.style.backgroundColor = "orange";
-
-        return tmp;
+        super("Activity", parent);
+        this.nodeSecondHeader = new NodeHeader("Waiting");
+        this.nodeCommentary = new NodeCommentary(this);
+        super.GetNodeBody().AddElementChild(this.nodeSecondHeader);
+        super.GetNodeBody().AddElementChild(this.nodeCommentary);
     }
 
     GetSerialized()
     {
-        return "Serialized";
+        var start = "<ActivityNode>";
+        var middle = "";
+        var end = "</ActivityNode>";
+        return start + middle + end;
     }
-
 
 
     GetReprezentation()

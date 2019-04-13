@@ -1,27 +1,25 @@
 
 
-class NodeHeader extends NodeElement{
+class NodeHeader extends GuiElement{
 
     constructor(name, parent)
     {
         super();
         super.SetNodeParent(parent);
-        super.GetReprezentation().style.left = 250;
-        super.GetReprezentation().style.top = 250;
         super.SetElementInnerName(name);
         super.AddElementClass("nodeHeader");
-        //super.SetOnClickReactor(parent);
+        super.SetOnClickReactor(parent);
 
     }
 
     SetUnselectedColor()
     {
-        super.setElementColor("#222222")
+        super.SetBackgroundColor("#222222")
     }
 
     SetSelectedColor()
     {
-        super.setElementColor("#33333")
+        super.SetBackgroundColor("#ff7900")
     }
 
 }

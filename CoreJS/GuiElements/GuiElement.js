@@ -1,4 +1,4 @@
-class NodeElement
+class GuiElement
 {
     constructor()
     {
@@ -11,8 +11,9 @@ class NodeElement
     SetOnClickReactor(reactor)
     {
         this.onClickReactor = reactor;
-        this.reprezentation.onclick = function(){
-            this.BaseReactOnClick()
+        this.reprezentation.onclick = () =>
+        {
+            this.BaseReactOnClick();
         };
     }
 
@@ -26,6 +27,11 @@ class NodeElement
     SetOnRightClickReactor(reactor)
     {
 
+    }
+
+    SetReprezentation(rep)
+    {
+        this.reprezentation = rep;
     }
 
     SetElementInnerName(name)

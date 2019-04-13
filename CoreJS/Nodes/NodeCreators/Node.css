@@ -1,9 +1,10 @@
 .nodeBody {
     position: absolute;
     z-index: 9;
-    background-color: #f1f1f1;
+    background-color: #b4b4b4;
     text-align: center;
     border: 1px solid #d3d3d3;
+    padding: 4px 2px 2px 2px;
 }
 
 .nodeBody:hover
@@ -23,21 +24,18 @@
 {
     width: 15px;
     height: 15px;
-    background-color: #ea8700;
     border-radius: 50%;
-    margin-top: 15px;
-    margin-left: 5px;
+    margin-top: 17px;
 }
 
 .nodeOutput
 {
     width: 15px;
     height: 15px;
-    background-color: #ea8700;
     border-radius: 50%;
     margin-right: auto;
-    margin-top: 15px;
-    margin-right: 5px;
+    margin-top: 17px;
+
 
 }
 
@@ -45,4 +43,14 @@
 {
     stroke-width: 2px;
     stroke:rgb(0,0,0);
+    position: absolute;
+}
+
+
+
+.nodeCommentary
+{
+    margin: 1px 1px 0px 0px;
+    height: 100%;
+    width: 100%;
 }

@@ -9439,7 +9439,7 @@ var RESERVED_PROPS = {
  */
 var ReactElement = function (type, key, ref, self, source, owner, props) {
   var element = {
-    // This tag allow us to uniquely identify this as a React Element
+    // This tag allow us to uniquely identify this as a React GuiElement
     $$typeof: REACT_ELEMENT_TYPE,
 
     // Built-in properties that belong on the element
@@ -9694,7 +9694,7 @@ var loggedTypeFailures = {};
  * have a "key" property assigned to it.
  *
  * @internal
- * @param {ReactElement} element Element that requires a key.
+ * @param {ReactElement} element GuiElement that requires a key.
  * @param {*} parentType element's parent's type.
  */
 function validateExplicitKey(element, parentType) {
@@ -10296,7 +10296,7 @@ var ReactEventListener = {
    *
    * @param {string} topLevelType Record from `EventConstants`.
    * @param {string} handlerBaseName Event name (e.g. "click").
-   * @param {object} handle Element on which to attach listener.
+   * @param {object} handle GuiElement on which to attach listener.
    * @return {?object} An object with a remove function which will forcefully
    *                  remove the listener.
    * @internal
@@ -10314,7 +10314,7 @@ var ReactEventListener = {
    *
    * @param {string} topLevelType Record from `EventConstants`.
    * @param {string} handlerBaseName Event name (e.g. "click").
-   * @param {object} handle Element on which to attach listener.
+   * @param {object} handle GuiElement on which to attach listener.
    * @return {?object} An object with a remove function which will forcefully
    *                  remove the listener.
    * @internal
@@ -14348,9 +14348,9 @@ var ReactTestUtils = {
 
   /**
    * Simulates a top level event being dispatched from a raw event that occurred
-   * on an `Element` node.
+   * on an `GuiElement` node.
    * @param {Object} topLevelType A type from `EventConstants.topLevelTypes`
-   * @param {!Element} node The dom to simulate an event occurring on.
+   * @param {!GuiElement} node The dom to simulate an event occurring on.
    * @param {?Event} fakeNativeEvent Fake native event to use in SyntheticEvent.
    */
   simulateNativeEventOnNode: function (topLevelType, node, fakeNativeEvent) {
@@ -14459,9 +14459,9 @@ ReactShallowRenderer.prototype._render = function (element, transaction, context
 /**
  * Exports:
  *
- * - `ReactTestUtils.Simulate.click(Element/ReactDOMComponent)`
- * - `ReactTestUtils.Simulate.mouseMove(Element/ReactDOMComponent)`
- * - `ReactTestUtils.Simulate.change(Element/ReactDOMComponent)`
+ * - `ReactTestUtils.Simulate.click(GuiElement/ReactDOMComponent)`
+ * - `ReactTestUtils.Simulate.mouseMove(GuiElement/ReactDOMComponent)`
+ * - `ReactTestUtils.Simulate.change(GuiElement/ReactDOMComponent)`
  * - ... (All keys from event plugin `eventTypes` objects)
  */
 function makeSimulator(eventType) {
@@ -14501,7 +14501,7 @@ function buildSimulators() {
   var eventType;
   for (eventType in ReactBrowserEventEmitter.eventNameDispatchConfigs) {
     /**
-     * @param {!Element|ReactDOMComponent} domComponentOrNode
+     * @param {!GuiElement|ReactDOMComponent} domComponentOrNode
      * @param {?object} eventData Fake event data to use in SyntheticEvent.
      */
     ReactTestUtils.Simulate[eventType] = makeSimulator(eventType);
@@ -14525,10 +14525,10 @@ buildSimulators();
 /**
  * Exports:
  *
- * - `ReactTestUtils.SimulateNative.click(Element/ReactDOMComponent)`
- * - `ReactTestUtils.SimulateNative.mouseMove(Element/ReactDOMComponent)`
+ * - `ReactTestUtils.SimulateNative.click(GuiElement/ReactDOMComponent)`
+ * - `ReactTestUtils.SimulateNative.mouseMove(GuiElement/ReactDOMComponent)`
  * - `ReactTestUtils.SimulateNative.mouseIn/ReactDOMComponent)`
- * - `ReactTestUtils.SimulateNative.mouseOut(Element/ReactDOMComponent)`
+ * - `ReactTestUtils.SimulateNative.mouseOut(GuiElement/ReactDOMComponent)`
  * - ... (All keys from `EventConstants.topLevelTypes`)
  *
  * Note: Top level event types are a subset of the entire set of handler types
@@ -14555,7 +14555,7 @@ Object.keys(topLevelTypes).forEach(function (eventType) {
   // Event type is stored as 'topClick' - we transform that to 'click'
   var convenienceName = eventType.indexOf('top') === 0 ? eventType.charAt(3).toLowerCase() + eventType.substr(4) : eventType;
   /**
-   * @param {!Element|ReactDOMComponent} domComponentOrNode
+   * @param {!GuiElement|ReactDOMComponent} domComponentOrNode
    * @param {?Event} nativeEventData Fake native event to use in SyntheticEvent.
    */
   ReactTestUtils.SimulateNative[convenienceName] = makeNativeSimulator(eventType);
@@ -17750,7 +17750,7 @@ function findDOMNode(componentOrElement) {
     return ReactMount.getNodeFromInstance(componentOrElement);
   }
   !(componentOrElement.render == null || typeof componentOrElement.render !== 'function') ? "development" !== 'production' ? invariant(false, 'findDOMNode was called on an unmounted component.') : invariant(false) : undefined;
-  !false ? "development" !== 'production' ? invariant(false, 'Element appears to be neither ReactComponent nor DOMNode (keys: %s)', Object.keys(componentOrElement)) : invariant(false) : undefined;
+  !false ? "development" !== 'production' ? invariant(false, 'GuiElement appears to be neither ReactComponent nor DOMNode (keys: %s)', Object.keys(componentOrElement)) : invariant(false) : undefined;
 }
 
 module.exports = findDOMNode;
@@ -18276,7 +18276,7 @@ function instantiateReactComponent(node) {
     instance = new ReactEmptyComponent(instantiateReactComponent);
   } else if (typeof node === 'object') {
     var element = node;
-    !(element && (typeof element.type === 'function' || typeof element.type === 'string')) ? "development" !== 'production' ? invariant(false, 'Element type is invalid: expected a string (for built-in components) ' + 'or a class/function (for composite components) but got: %s.%s', element.type == null ? element.type : typeof element.type, getDeclarationErrorAddendum(element._owner)) : invariant(false) : undefined;
+    !(element && (typeof element.type === 'function' || typeof element.type === 'string')) ? "development" !== 'production' ? invariant(false, 'GuiElement type is invalid: expected a string (for built-in components) ' + 'or a class/function (for composite components) but got: %s.%s', element.type == null ? element.type : typeof element.type, getDeclarationErrorAddendum(element._owner)) : invariant(false) : undefined;
 
     // Special case string values
     if (typeof element.type === 'string') {

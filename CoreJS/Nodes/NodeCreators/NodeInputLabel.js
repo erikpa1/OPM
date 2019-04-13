@@ -1,4 +1,5 @@
-class NodeInputLabel extends NodeElement{
+class NodeInputLabel extends GuiElement
+{
 
     constructor(){
         super();

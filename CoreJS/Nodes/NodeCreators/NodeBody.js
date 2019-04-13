@@ -1,4 +1,4 @@
-class NodeBody extends NodeElement
+class NodeBody extends GuiElement
 {
 
     constructor()

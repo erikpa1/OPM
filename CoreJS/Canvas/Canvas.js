@@ -4,10 +4,14 @@ var allCanvas = [];
 var activeCanvas = null;
 
 
-class Canvas
+class Canvas extends GuiElement
 {
     constructor()
     {
+        super();
+        super.SetReprezentation($("body")[0]);
+        super.SetOnClickReactor(this);
+
         this.allNodes = [];
         this.author = "Default";
 
@@ -21,7 +25,6 @@ class Canvas
         this.ajax.SetUrl('/CanvasSerializator');
         this.ajax.SetReciever(this.RecieveAjaxMessage);
 
-
         this.InitCanvas();
         activeCanvas = this;
         //allCanvas.add(this);
@@ -29,19 +32,15 @@ class Canvas
 
     InitCanvas()
     {
-
+        super.GetReprezentation().appendChild(GetTopNav());
         this.OverrideRightClick();
+        this.AddNodeToCanvas(new BasicNode("BaseNode", this));
+        this.AddNodeToCanvas(new ActivityNode("Tvorba modelu", this));
+    }
 
-        var tmpnode = new BasicNode("Ahoj", this);
-        var tmpActivityNode = new ActivityNode("Tvorba modelu", this);
-
-        $("body")[0].appendChild(GetTopNav());
-
-        this.AddNodeToCanvas(tmpnode.GetReprezentation());
-        this.AddNodeToCanvas(tmpActivityNode.GetReprezentation());
-
-
-
+    ReactOnClick()
+    {
+        this.DeactivateNode(this.activeNode);
     }
 
     RecieveAjaxMessage(data)
@@ -72,18 +71,42 @@ class Canvas
 
     DeactivateNode(node)
     {
-        this.activeNode.SetNodeDeselected();
-        this.activeNode = null;
-        this.activeNodes.clear;
+        if (node != null)
+        {
+            this.activeNode.SetNodeDeselected();
+            this.activeNode = null;
+        }
     }
-
-
 
     AddNodeToCanvas(node)
     {
-        $("body")[0].appendChild(node.GetReprezentation());
-        
+      this.allNodes.push(node);
+      super.AddElementChild(node.GetReprezentation());
     }
+
+    MarkNodeInputs(inputType)
+    {
+        switch (inputType) {
+            case "Header":
+                this.allNodes.forEach((element) => {
+                    element.MarkHeaderInput();
+                });
+                break;
+        }
+    }
+
+    UnMarkNodeInputs(inputType)
+    {
+        switch (inputType) {
+            case "Header":
+                this.allNodes.forEach((element) => {
+                    element.UnMarkHeaderInput();
+                });
+                break;
+        }
+    }
+
+
 
     GetMultiSelectionState()
     {
@@ -95,7 +118,7 @@ class Canvas
 
         var outputCollector = "";
         var index = 0;
-        for (index = 0; index < this.allNodes.length; i++)
+        for (index = 0; index < this.allNodes.length; index++)
         {
             outputCollector += this.allNodes[index].GetSerialized();
         }

@@ -1609,8 +1609,8 @@
    * Returns the parentNode or the host of the element
    * @method
    * @memberof Popper.Utils
-   * @argument {Element} element
-   * @returns {Element} parent
+   * @argument {GuiElement} element
+   * @returns {GuiElement} parent
    */
   function getParentNode(element) {
     if (element.nodeName === 'HTML') {
@@ -1623,8 +1623,8 @@
    * Returns the scrolling parent of the given element
    * @method
    * @memberof Popper.Utils
-   * @argument {Element} element
-   * @returns {Element} scroll parent
+   * @argument {GuiElement} element
+   * @returns {GuiElement} scroll parent
    */
   function getScrollParent(element) {
     // Return body, `getScroll` will take care to get the correct `scrollTop` from it
@@ -1678,8 +1678,8 @@
    * Returns the offset parent of the given element
    * @method
    * @memberof Popper.Utils
-   * @argument {Element} element
-   * @returns {Element} offset parent
+   * @argument {GuiElement} element
+   * @returns {GuiElement} offset parent
    */
   function getOffsetParent(element) {
     if (!element) {
@@ -1723,8 +1723,8 @@
    * Finds the root node (document, shadowDOM root) of the given element
    * @method
    * @memberof Popper.Utils
-   * @argument {Element} node
-   * @returns {Element} root node
+   * @argument {GuiElement} node
+   * @returns {GuiElement} root node
    */
   function getRoot(node) {
     if (node.parentNode !== null) {
@@ -1738,9 +1738,9 @@
    * Finds the offset parent common to the two provided nodes
    * @method
    * @memberof Popper.Utils
-   * @argument {Element} element1
-   * @argument {Element} element2
-   * @returns {Element} common offset parent
+   * @argument {GuiElement} element1
+   * @argument {GuiElement} element2
+   * @returns {GuiElement} common offset parent
    */
   function findCommonOffsetParent(element1, element2) {
     // This check is needed to avoid errors in case one of the elements isn't defined for any reason
@@ -1782,7 +1782,7 @@
    * Gets the scroll value of the given element in the given side (top and left)
    * @method
    * @memberof Popper.Utils
-   * @argument {Element} element
+   * @argument {GuiElement} element
    * @argument {String} side `top` or `left`
    * @returns {number} amount of scrolled pixels
    */
@@ -2059,8 +2059,8 @@
    * Check if the given element is fixed or is inside a fixed parent
    * @method
    * @memberof Popper.Utils
-   * @argument {Element} element
-   * @argument {Element} customContainer
+   * @argument {GuiElement} element
+   * @argument {GuiElement} customContainer
    * @returns {Boolean} answer to "isFixed?"
    */
   function isFixed(element) {
@@ -2082,8 +2082,8 @@
    * Finds the first parent of an element that has a transformed property defined
    * @method
    * @memberof Popper.Utils
-   * @argument {Element} element
-   * @returns {Element} first transformed parent or documentElement
+   * @argument {GuiElement} element
+   * @returns {GuiElement} first transformed parent or documentElement
    */
 
   function getFixedPositionOffsetParent(element) {
@@ -2105,7 +2105,7 @@
    * @param {HTMLElement} popper
    * @param {HTMLElement} reference
    * @param {number} padding
-   * @param {HTMLElement} boundariesElement - Element used to define the boundaries
+   * @param {HTMLElement} boundariesElement - GuiElement used to define the boundaries
    * @param {Boolean} fixedPosition - Is in fixed position mode
    * @returns {Object} Coordinates of the boundaries
    */
@@ -2235,9 +2235,9 @@
    * @method
    * @memberof Popper.Utils
    * @param {Object} state
-   * @param {Element} popper - the popper element
-   * @param {Element} reference - the reference element (the popper will be relative to this)
-   * @param {Element} fixedPosition - is in fixed position mode
+   * @param {GuiElement} popper - the popper element
+   * @param {GuiElement} reference - the reference element (the popper will be relative to this)
+   * @param {GuiElement} fixedPosition - is in fixed position mode
    * @returns {Object} An object containing the offsets which will be applied to the popper
    */
   function getReferenceOffsets(state, popper, reference) {
@@ -2251,7 +2251,7 @@
    * Get the outer sizes of the given element (offset size + margins)
    * @method
    * @memberof Popper.Utils
-   * @argument {Element} element
+   * @argument {GuiElement} element
    * @returns {Object} object containing width and height properties
    */
   function getOuterSizes(element) {
@@ -2515,7 +2515,7 @@
 
   /**
    * Get the window associated with the element
-   * @argument {Element} element
+   * @argument {GuiElement} element
    * @returns {Window}
    */
   function getWindow(element) {
@@ -2618,7 +2618,7 @@
    * Set the style to the given popper
    * @method
    * @memberof Popper.Utils
-   * @argument {Element} element - Element to apply the style to
+   * @argument {GuiElement} element - GuiElement to apply the style to
    * @argument {Object} styles
    * Object with a list of properties and values which will be applied to the element
    */
@@ -2637,7 +2637,7 @@
    * Set the attributes to the given popper
    * @method
    * @memberof Popper.Utils
-   * @argument {Element} element - Element to apply the attributes to
+   * @argument {GuiElement} element - GuiElement to apply the attributes to
    * @argument {Object} styles
    * Object with a list of properties and values which will be applied to the element
    */

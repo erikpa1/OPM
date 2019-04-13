@@ -1,7 +1,7 @@
 
 
 
-class NodeLabel extends NodeElement
+class NodeLabel extends GuiElement
 {
 
 }
