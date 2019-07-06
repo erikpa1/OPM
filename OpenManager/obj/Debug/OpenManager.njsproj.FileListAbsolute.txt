@@ -1,0 +1,2 @@
+C:\Data\OPM\OpenManager\obj\Debug\OpenManager.njsprojAssemblyReference.cache
+C:\Data\OPM\OpenManager\obj\Debug\OpenManager.njsproj.CoreCompileInputs.cache
