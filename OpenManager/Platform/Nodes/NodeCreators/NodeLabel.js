@@ -1,0 +1,7 @@
+
+
+
+class NodeLabel extends GuiElement
+{
+
+}

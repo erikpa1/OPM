@@ -38,11 +38,45 @@
     <Content Include="OpenEvidenceManager\ScreenMain.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Platform\AppLayout\AppBody.js" />
+    <Content Include="Platform\AppLayout\Topnavigation.js" />
+    <Content Include="Platform\bootstrap.bundle.js" />
+    <Content Include="Platform\bootstrap.bundle.js.map" />
+    <Content Include="Platform\bootstrap.bundle.min.js" />
+    <Content Include="Platform\bootstrap.bundle.min.js.map" />
+    <Content Include="Platform\bootstrap.js" />
+    <Content Include="Platform\bootstrap.js.map" />
+    <Content Include="Platform\bootstrap.min.js" />
+    <Content Include="Platform\bootstrap.min.js.map" />
+    <Content Include="Platform\Canvas\Canvas.css" />
+    <Content Include="Platform\Canvas\Canvas.js" />
+    <Content Include="Platform\Canvas\NodeDataPopup.js" />
+    <Content Include="Platform\GuiElements\GuiElement.js" />
+    <Content Include="Platform\Networking\Ajax.js" />
+    <Content Include="Platform\Nodes\NodeCreators\Node.css" />
+    <Content Include="Platform\Nodes\NodeCreators\Node.js" />
+    <Content Include="Platform\Nodes\NodeCreators\NodeBody.js" />
+    <Content Include="Platform\Nodes\NodeCreators\NodeCommentary.js" />
+    <Content Include="Platform\Nodes\NodeCreators\NodeController.js" />
+    <Content Include="Platform\Nodes\NodeCreators\NodeHeader.js" />
+    <Content Include="Platform\Nodes\NodeCreators\NodeInput.js" />
+    <Content Include="Platform\Nodes\NodeCreators\NodeInputLabel.js" />
+    <Content Include="Platform\Nodes\NodeCreators\NodeIO.js" />
+    <Content Include="Platform\Nodes\NodeCreators\NodeLabel.js" />
+    <Content Include="Platform\Nodes\NodeCreators\NodeLine.js" />
+    <Content Include="Platform\Nodes\NodeCreators\NodeOutput.js" />
+    <Content Include="Platform\Nodes\NodeCreators\NodesManager.js" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Platform\AppLayout\" />
+    <Folder Include="Platform\Canvas\" />
+    <Folder Include="Platform\GuiElements\" />
+    <Folder Include="Platform\Networking\" />
+    <Folder Include="Platform\Nodes\" />
+    <Folder Include="Platform\Nodes\NodeCreators\" />
     <Folder Include="Server\" />
     <Folder Include="OpenPersonManager\" />
     <Folder Include="OpenDataManager\" />

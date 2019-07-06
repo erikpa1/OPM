@@ -1,2 +1,3 @@
 C:\Data\OPM\OpenManager\obj\Debug\OpenManager.njsprojAssemblyReference.cache
 C:\Data\OPM\OpenManager\obj\Debug\OpenManager.njsproj.CoreCompileInputs.cache
+C:\Data\OPM\OpenManager\bin\Microsoft.NodejsTools.WebRole.dll

@@ -1,0 +1,56 @@
+.nodeBody {
+    position: absolute;
+    z-index: 9;
+    background-color: #b4b4b4;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    padding: 4px 2px 2px 2px;
+}
+
+.nodeBody:hover
+{
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.nodeHeader {
+    padding: 10px;
+    margin: 2px 2px 2px 2px;
+    z-index: 1;
+    background-color: #222222;
+    color: #fff;
+}
+
+.nodeInput
+{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-top: 17px;
+}
+
+.nodeOutput
+{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-top: 17px;
+
+
+}
+
+.nodeLine
+{
+    stroke-width: 2px;
+    stroke:rgb(0,0,0);
+    position: absolute;
+}
+
+
+
+.nodeCommentary
+{
+    margin: 1px 1px 0px 0px;
+    height: 100%;
+    width: 100%;
+}
